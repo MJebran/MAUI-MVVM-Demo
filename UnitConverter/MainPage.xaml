@@ -1,10 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:UnitConverter.ViewModels;assembly=UnitConverter"
              xmlns:local="clr-namespace:UnitConverter"
              x:Class="UnitConverter.MainPage"
+             x:DataType="viewModels:MainPageViewModel"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
-
+    <StackLayout Padding="20">
+        <Entry Placeholder="Celsius" Keyboard="Numeric" Text="{Binding CelsiusValue, Mode=TwoWay}" />
+        <Entry Placeholder="Fahrenheit" Keyboard="Numeric" Text="{Binding FahrenheitValue, Mode=TwoWay}" />
+    </StackLayout>
     <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html">
         <BlazorWebView.RootComponents>
             <RootComponent Selector="#app" ComponentType="{x:Type local:Components.Routes}" />
